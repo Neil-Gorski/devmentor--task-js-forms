@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>JavaScript: Formularze - devmentor.pl</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -22,20 +26,38 @@
           <form class="excursions__form">
             <div class="excursions__field">
               <label class="excursions__field-name">
-                Dorosły: <span class="excursions__price">99</span>PLN x
-                <input class="excursions__field-input" name="adults" />
+                Dorosły:
+                <span class="excursions__price excursions__price-adult">99</span
+                >PLN x
+                <input
+                  class="excursions__field-input"
+                  name="adults"
+                  type="number"
+                  min="0"
+                  max="50"
+                  value="0"
+                />
               </label>
             </div>
             <div class="excursions__field">
               <label class="excursions__field-name">
-                Dziecko: <span class="excursions__price">50</span>PLN x
-                <input class="excursions__field-input" name="children" />
+                Dziecko:
+                <span class="excursions__price excursions__price-child">50</span
+                >PLN x
+                <input
+                  class="excursions__field-input"
+                  name="children"
+                  type="number"
+                  min="0"
+                  max="50"
+                  value="0"
+                />
               </label>
             </div>
             <div class="excursions__field excursions__field--submit">
               <input
                 class="excursions__field-input excursions__field-input--submit"
-                value="dodaj do zamówinia"
+                value="Dodaj do zamówinia"
                 type="submit"
               />
             </div>
@@ -45,8 +67,8 @@
       <section class="panel__form">
         <div class="panel__uploader uploader">
           <label class="uploader__label">
-            Wybierz plik do wczytania wycieczek:
-            <input class="uploader__input" type="file" accept=".csv" />
+            <span class="uploader__button">📁 Wybierz plik CSV</span>
+            <input class="uploader__input" type="file" accept=".csv" hidden />
           </label>
         </div>
         <form class="panel__order order" novalidate>
@@ -67,7 +89,7 @@
           <div class="order__field order__field--submit">
             <input
               class="order__field-input order__field-submit"
-              value="zamawiam"
+              value="Zamawiam"
               type="submit"
             />
           </div>
