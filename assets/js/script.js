@@ -13,7 +13,7 @@ chooseFileElement.addEventListener("change", function (e) {
     reader.onload = function (e) {
       const csvContent = e.target.result;
       const csvContentArr = csvContent.split(/[\r\n]+/gm);
-      console.log(csvContentArr);
+      // console.log(csvContentArr);
       convertArrsToObjs(csvContentArr);
     };
   }
@@ -21,14 +21,17 @@ chooseFileElement.addEventListener("change", function (e) {
 
 function convertArrsToObjs(arr) {
   const activityList = [];
+
   arr.forEach((element) => {
-    const activityArr = element.split(`","`);
+    let activityArr = element.replace(/^"|"$/g, "").split(`","`);
+    activityArr = activityArr.map((el) => el.replace(/"/g, "").trim());
+    console.log(activityArr);
     const activityObj = {
-      id: activityArr[0],
+      id: +activityArr[0],
       title: activityArr[1],
       description: activityArr[2],
-      piceAdult: activityArr[3],
-      priceChild: activityArr[4],
+      priceAdult: +activityArr[3],
+      priceChild: +activityArr[4],
     };
     activityList.push(activityObj);
   });
